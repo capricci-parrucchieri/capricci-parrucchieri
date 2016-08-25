@@ -7,6 +7,8 @@ var gulp = require( "gulp" ),
   rename = require( "gulp-rename" ),
   concat = require( "gulp-concat" ),
   minifyHTML = require( "gulp-minify-html" ),
+  imagemin = require( "gulp-imagemin" ),
+  imageResize = require( "gulp-image-resize" ),
   connect = require( "gulp-connect" ),
   watch = require( "gulp-watch" ),
   runSequence = require( "run-sequence" );
@@ -64,6 +66,22 @@ gulp.task( "html", function() {
       quotes: true
     } ) )
     .pipe( gulp.dest( "dist/pages" ) );
+} );
+
+// Images
+gulp.task( "images", function() {
+  return gulp.src( "src/images/**/*" )
+    //.pipe( rename({ suffix: ".jpg" }) )
+    .pipe( imagemin( {
+      progressive: true
+    } ) )
+    .pipe( imageResize( {
+      width: 1024,
+      // height: 100,
+      // crop: true,
+      upscale: false
+    } ) )
+    .pipe( gulp.dest( "dist/images/" ) );
 } );
 
 // Watch
