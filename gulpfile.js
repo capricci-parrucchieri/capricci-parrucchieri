@@ -12,7 +12,7 @@ var imageResize = require( "gulp-image-resize" );
 var connect = require( "gulp-connect" );
 var watch = require( "gulp-watch" );
 var runSequence = require( "run-sequence" );
-var ghPages = require( "gulp-gh-pages" );
+// var ghPages = require( "gulp-gh-pages" );
 
 // Styles
 gulp.task( "styles", function() {
@@ -123,12 +123,12 @@ gulp.task( "copy", function() {
 } );
 
 // Deploy to gh-pages
-gulp.task( "deploy", function() {
-  return gulp.src( "./dist/**/*" )
-    .pipe( ghPages( {
-      branch: "master"
-    } ) );
-} );
+// gulp.task( "deploy", function() {
+//   return gulp.src( "./dist/**/*" )
+//     .pipe( ghPages( {
+//       branch: "master"
+//     } ) );
+// } );
 
 // Default task
 gulp.task( "default", function( cb ) {
