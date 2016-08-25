@@ -127,5 +127,5 @@ gulp.task( "deploy", function() {
 
 // Default task
 gulp.task( "default", function( cb ) {
-  runSequence( [ "copy", "watch" ], [ "styles", "scripts", "html" ], [ "webserver", "livereload" ], cb );
+  runSequence( [ "copy", "watch" ], [ "styles", "scripts", "html", "images" ], [ "webserver", "livereload" ], cb );
 } );
