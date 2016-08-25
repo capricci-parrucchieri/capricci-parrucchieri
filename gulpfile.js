@@ -1,18 +1,18 @@
 // Load plugins
-var gulp = require( "gulp" ),
-  autoprefixer = require( "gulp-autoprefixer" ),
-  concatcss = require( "gulp-concat-css" ),
-  minifycss = require( "gulp-minify-css" ),
-  uglify = require( "gulp-uglify" ),
-  rename = require( "gulp-rename" ),
-  concat = require( "gulp-concat" ),
-  minifyHTML = require( "gulp-minify-html" ),
-  imagemin = require( "gulp-imagemin" ),
-  imageResize = require( "gulp-image-resize" ),
-  connect = require( "gulp-connect" ),
-  watch = require( "gulp-watch" ),
-  runSequence = require( "run-sequence" );
-// ghPages = require( "gulp-gh-pages" );
+var gulp = require( "gulp" );
+var autoprefixer = require( "gulp-autoprefixer" );
+var concatcss = require( "gulp-concat-css" );
+var minifycss = require( "gulp-minify-css" );
+var uglify = require( "gulp-uglify" );
+var rename = require( "gulp-rename" );
+var concat = require( "gulp-concat" );
+var minifyHTML = require( "gulp-minify-html" );
+var imagemin = require( "gulp-imagemin" );
+var imageResize = require( "gulp-image-resize" );
+var connect = require( "gulp-connect" );
+var watch = require( "gulp-watch" );
+var runSequence = require( "run-sequence" );
+var ghPages = require( "gulp-gh-pages" );
 
 // Styles
 gulp.task( "styles", function() {
@@ -71,14 +71,11 @@ gulp.task( "html", function() {
 // Images
 gulp.task( "images", function() {
   return gulp.src( "src/images/**/*" )
-    //.pipe( rename({ suffix: ".jpg" }) )
     .pipe( imagemin( {
       progressive: true
     } ) )
     .pipe( imageResize( {
       width: 1024,
-      // height: 100,
-      // crop: true,
       upscale: false
     } ) )
     .pipe( gulp.dest( "dist/images/" ) );
@@ -123,7 +120,7 @@ gulp.task( "copy", function() {
 } );
 
 // Deploy to gh-pages
-gulp.task( "ghpages", function() {
+gulp.task( "deploy", function() {
   return gulp.src( "./dist/**/*" )
     .pipe( ghPages() );
 } );
