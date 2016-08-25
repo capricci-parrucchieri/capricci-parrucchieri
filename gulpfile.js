@@ -117,6 +117,9 @@ gulp.task( "copy", function() {
 
   gulp.src( "node_modules/bootstrap/**/*" )
     .pipe( gulp.dest( "dist/node_modules/bootstrap" ) );
+
+  gulp.src( "node_modules/jquery/**/*" )
+    .pipe( gulp.dest( "dist/node_modules/jquery" ) );
 } );
 
 // Deploy to gh-pages
